@@ -1,65 +1,61 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Link from "next/link";
+import { Box, Container, Stack, Text } from "@chakra-ui/react";
+
+import Footer from "../src/components/shared/footer";
+import { Brand, Header } from "../src/components/shared/pageHeader";
+import { Default, Hover } from "../src/svg/BenLogo";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>&#128075; hey</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <main>
+        <Brand />
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+        <Container maxW="container.xl" minH="100vh" pt={{ base: 32, sm: 20 }}>
+          <Text textStyle={{ md: "h1", sm: "h2", base: "h3" }}>
+            Hey, I'm Ben
+          </Text>
+          <Text textStyle={{ md: "h2", sm: "h3", base: "h4" }}>
+            Welcome to my website
+          </Text>
+          <Stack
+            py={{ sm: 20, base: 5 }}
+            direction={{ base: "column", sm: "row" }}
+            spacing={{ md: 20, base: 5 }}
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+            <HomePageLink text="about" href="/about" />
+            <HomePageLink text="work" href="/work" />
+            <HomePageLink text="art" href="/art" />
+            {/* <HomePageLink text="beer" />
+            <HomePageLink text="blog" /> */}
+          </Stack>
+        </Container>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+      <footer>
+        <Footer />
       </footer>
-    </div>
-  )
+    </>
+  );
+}
+
+function HomePageLink({ href = "/", text }) {
+  return (
+    <Link href={href}>
+      <a>
+        <Text
+          textStyle={{ md: "h3", sm: "h4", base: "h5" }}
+          _hover={{ textDecoration: "underline" }}
+        >
+          {text}
+        </Text>
+      </a>
+    </Link>
+  );
 }
