@@ -44,7 +44,9 @@ export default function Footer() {
         <Stack direction="column" spacing={0}>
           <Text color="babyPowder">Built with Next JS & Chakra UI</Text>
           <Flex justify="center" align="center">
-            <Text color="babyPowder">in Austin, TX</Text>
+            <Text color="babyPowder" mr={1}>
+              in Austin, TX
+            </Text>
             <Icon color="babyPowder" as={HiOutlineGlobe} />
           </Flex>
         </Stack>

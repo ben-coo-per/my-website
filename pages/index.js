@@ -57,7 +57,7 @@ export default function Home() {
                   icon={<HiOutlineBriefcase />}
                 />
                 <HomePageLink
-                  text="art"
+                  text="junk"
                   href="/art"
                   icon={<HiOutlineSparkles />}
                 />

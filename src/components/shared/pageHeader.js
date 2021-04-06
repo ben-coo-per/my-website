@@ -143,7 +143,7 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
             }
           />
           <NavLink
-            text="art"
+            text="junk"
             href="/art"
             isSelected={pageTitle === "art"}
             icon={pageTitle === "art" ? <HiSparkles /> : <HiOutlineSparkles />}
@@ -182,7 +182,7 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
           icon={pageTitle === "work" ? <HiBriefcase /> : <HiOutlineBriefcase />}
         />
         <NavLink
-          text="art"
+          text="junk"
           href="/art"
           isSelected={pageTitle === "art"}
           icon={pageTitle === "art" ? <HiSparkles /> : <HiOutlineSparkles />}
