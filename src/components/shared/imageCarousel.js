@@ -47,8 +47,8 @@ export default function ImageCarousel({ images }) {
 
     return (
       <Center bg="princeGray" borderRadius="lg">
-        <Stack direction="column">
-          <Skeleton isLoaded={!slideIsLoading}>
+        <Stack direction="column" justify="center">
+          <Skeleton isLoaded={!slideIsLoading} align="center">
             <Image
               onLoad={() => setSlideIsLoading(false)}
               borderRadius="lg"
