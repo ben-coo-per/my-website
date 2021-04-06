@@ -33,12 +33,17 @@ export async function getAllWork() {
             _id
             date
             description
-            imageGallery {
-              image1 {
-                filename
-                path
-                title
-              }
+            thumbnail {
+              _id
+              caption
+              credit
+              description
+              filename
+              mimeType
+              path
+              sourceUrl
+              title
+              uploadStatus
             }
             tag {
               name
@@ -59,55 +64,7 @@ export async function getProject(_id) {
         date
         description
         imageGallery {
-          image1 {
-            _id
-            caption
-            credit
-            description
-            filename
-            mimeType
-            path
-            sourceUrl
-            title
-            uploadStatus
-          }
-          image2 {
-            _id
-            caption
-            credit
-            description
-            filename
-            mimeType
-            path
-            sourceUrl
-            title
-            uploadStatus
-          }
-          image3 {
-            _id
-            caption
-            credit
-            description
-            filename
-            mimeType
-            path
-            sourceUrl
-            title
-            uploadStatus
-          }
-          image4 {
-            _id
-            caption
-            credit
-            description
-            filename
-            mimeType
-            path
-            sourceUrl
-            title
-            uploadStatus
-          }
-          image5 {
+          image {
             _id
             caption
             credit

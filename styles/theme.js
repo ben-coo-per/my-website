@@ -3,8 +3,9 @@ import { extendTheme } from "@chakra-ui/react";
 const colors = {
   darkChocolate: "#261C15",
   queenBlue: "#33658A",
+  princeGray: "#EDF0F4",
   babyPowder: "#FFFFF8",
-  ghostGray: "ECECEC",
+
   flame: "#F05D23",
   bg: "#F7F7F3",
 };

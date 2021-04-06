@@ -21,40 +21,24 @@ export default function Footer() {
       <Stack direction="column">
         <Stack direction="row" spacing={0}>
           <Link href="https://twitter.com/cooperben83">
-            <IconButton
-              _hover={{ cursor: "pointer" }}
-              variant="link"
-              boxSize={4}
-              as={FaTwitter}
-              color="babyPowder"
-            />
+            <IconButton variant="link" color="babyPowder">
+              <Icon as={FaTwitter} />
+            </IconButton>
           </Link>
           <Link href="https://www.linkedin.com/in/benjamin-cooper1996/">
-            <IconButton
-              _hover={{ cursor: "pointer" }}
-              variant="link"
-              boxSize={4}
-              as={FaLinkedinIn}
-              color="babyPowder"
-            />
+            <IconButton variant="link" color="babyPowder">
+              <Icon as={FaLinkedinIn} />
+            </IconButton>
           </Link>
-          <Link href="https://dribbble.com/ben-cooper/shots">
-            <IconButton
-              _hover={{ cursor: "pointer" }}
-              variant="link"
-              boxSize={4}
-              as={FaDribbble}
-              color="babyPowder"
-            />
-          </Link>
+          {/* <Link href="https://dribbble.com/ben-cooper/shots">
+            <IconButton variant="link" color="babyPowder">
+              <Icon as={FaDribbble} />
+            </IconButton>
+          </Link> */}
           <Link href="mailto:me@bencooper.xyz?subject=howdy!">
-            <IconButton
-              _hover={{ cursor: "pointer" }}
-              variant="link"
-              boxSize={4}
-              as={FaEnvelope}
-              color="babyPowder"
-            />
+            <IconButton variant="link" color="babyPowder">
+              <Icon as={FaEnvelope} />
+            </IconButton>
           </Link>
         </Stack>
       </Stack>

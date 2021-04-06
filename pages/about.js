@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 // import { DisplayPage } from "../../src/components/shared/layout";
-import { Header } from "../../src/components/shared/pageHeader";
+import { Header } from "../src/components/shared/pageHeader";
 import {
   Box,
   Image,
@@ -13,7 +13,7 @@ import {
   Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import Footer from "../../src/components/shared/footer";
+import Footer from "../src/components/shared/footer";
 
 export default function AboutPage() {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);

@@ -18,12 +18,15 @@ function WorkCard({ project }) {
           p={2}
         >
           <Skeleton isLoaded={imageIsLoaded}>
-            <Image
-              onLoad={() => setImageIsLoaded(true)}
-              borderRadius="lg"
-              src={`https://images.takeshape.io/${project.imageGallery[0].image1.path}`}
-              alt={project.imageAlt}
-            />
+            <Box bg="princeGray" borderRadius="lg">
+              <Image
+                onLoad={() => setImageIsLoaded(true)}
+                borderRadius="lg"
+                h="400px"
+                src={`https://images.takeshape.io/${project.thumbnail.path}`}
+                alt={project.imageAlt}
+              />
+            </Box>
           </Skeleton>
           <Box p="6">
             <Text textStyle="h4" align="center">
