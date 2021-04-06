@@ -1,13 +1,17 @@
+import { useState } from "react";
 import Link from "next/link";
 import {
   Box,
   Container,
   SimpleGrid,
   Skeleton,
+  SkeletonText,
   Stack,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { Header } from "./pageHeader";
+import { SkeletonCard } from "./cards";
 
 import Footer from "./footer";
 
@@ -27,10 +31,18 @@ function DisplayPage({
             backURL={backURL}
             isLoading={isLoading}
           />
-          <Container maxW="container.xl" minH="100vh" pt={48} pb={14}>
-            <Skeleton>
-              <Box h="200px" w="full" />
-            </Skeleton>
+          <Container
+            maxW="container.xl"
+            minH="100vh"
+            pt={16}
+            pb={8}
+            px={{ base: null, lg: 16 }}
+          >
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} pt={3}>
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+            </SimpleGrid>
           </Container>
         </main>
 
@@ -46,7 +58,7 @@ function DisplayPage({
       <>
         <main>
           <Header pageTitle={pageTitle} backURL={backURL} />
-          <Container maxW="container.xl" minH="100vh" pt={48} pb={14}>
+          <Container maxW="container.xl" minH="100vh" pt={16} pb={14}>
             <Stack bg="">
               <Text color="darkChocolate" textStyle="h4" align="center">
                 Oops!
@@ -64,12 +76,24 @@ function DisplayPage({
       </>
     );
   }
+  const isSmall = useBreakpointValue({ base: true, md: false });
   return (
     <>
       <main>
         <Header pageTitle={pageTitle} backURL={backURL} />
-        <Container maxW="container.xl" minH="100vh" pt={48} pb={14}>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} pt={3}>
+        <Container
+          maxW="container.xl"
+          minH="100vh"
+          pt={16}
+          pb={8}
+          px={{ base: null, lg: 16 }}
+        >
+          {isSmall && (
+            <Text align="center" textStyle="h4">
+              {pageTitle}
+            </Text>
+          )}
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} pt={3}>
             {children}
           </SimpleGrid>
         </Container>
@@ -82,16 +106,30 @@ function DisplayPage({
   );
 }
 
-function ProjectPage({ children, pageTitle, backURL, isLoading = false }) {
+function ProjectPage({
+  children,
+  projectTitle,
+  project,
+  backURL,
+  isLoading = false,
+}) {
+  const [galleryStep, setGalleryStep] = useState(0);
   return (
     <>
       <main>
-        <Header pageTitle={pageTitle} backURL={backURL} isLoading={isLoading} />
-        <Container maxW="container.xl" minH="100vh" pt={48} pb={14}>
+        <Header
+          pageTitle={project ? project.title : projectTitle}
+          backURL={backURL}
+          isLoading={isLoading}
+        />
+        <Container maxW="container.lg" minH="100vh" pt={16} pb={8}>
           {isLoading ? (
-            <Skeleton>
-              <Box h="200px" w="full" />
-            </Skeleton>
+            <Stack>
+              <Skeleton>
+                <Box h="50vh" bg="blue"></Box>
+              </Skeleton>
+              <SkeletonText noOfLines={6} spacing={4} />
+            </Stack>
           ) : (
             <Stack>{children}</Stack>
           )}

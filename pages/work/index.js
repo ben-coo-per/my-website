@@ -22,17 +22,18 @@ export default function WorkPage() {
     const fetchData = async () => {
       try {
         const res = await getAllWork();
-        if (res.status >= 400) {
+
+        if (res) {
           setState(
             initialState({
-              error: await res.json(),
+              response: res,
               isLoading: false,
             })
           );
         } else {
           setState(
             initialState({
-              response: await res.json(),
+              error: res,
               isLoading: false,
             })
           );
@@ -59,7 +60,7 @@ export default function WorkPage() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <DisplayPage pageTitle="Work" backURL="/" isLoading />
+        <DisplayPage pageTitle="work" backURL="/" isLoading />
       </>
     );
   }
@@ -72,12 +73,11 @@ export default function WorkPage() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <DisplayPage pageTitle="Work" backURL="/" error />
+        <DisplayPage pageTitle="work" backURL="/" error />
       </>
     );
   }
 
-  console.log(state);
   return (
     <>
       <Head>
@@ -85,20 +85,11 @@ export default function WorkPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DisplayPage pageTitle="Work" backURL="/">
-        {state.response.data.work.items.map((project) => (
+      <DisplayPage pageTitle="work" backURL="/">
+        {state.response.work.items.map((project) => (
           <WorkCard key={project._id} project={project} />
         ))}
       </DisplayPage>
     </>
   );
 }
-
-const project = {
-  imageUrl: "https://bit.ly/2Z4KKcF",
-  imageAlt: "Rear view of modern home with pool",
-  name: "Herd",
-  isWork: true,
-  description: "Herd is a great thing and everyone should use it.",
-  year: "2020 - Present",
-};

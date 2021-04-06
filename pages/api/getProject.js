@@ -14,14 +14,14 @@ const fetchData = async (query, { variables } = {}) => {
     }),
   });
 
-  return res;
-  //   const responseJson = await res.json();
-  //   if (responseJson.errors) {
-  //     console.error(
-  //       "Something went Wrong. Failed to fetch API!!" + responseJson.errors
-  //     );
-  //   }
-  //   return responseJson.data;
+  // return res;
+  const responseJson = await res.json();
+  if (responseJson.errors) {
+    console.error(responseJson.errors);
+    return responseJson.errors;
+  }
+
+  return responseJson.data;
 };
 
 // get all posts to display on landing page
@@ -47,6 +47,88 @@ export async function getAllWork() {
           }
         }
       }`
+  );
+  return data;
+}
+
+export async function getProject(_id) {
+  const data = await fetchData(
+    `query Project($_id: ID = "${_id}") {
+      project: getProject(_id: $_id) {
+        _id
+        date
+        description
+        imageGallery {
+          image1 {
+            _id
+            caption
+            credit
+            description
+            filename
+            mimeType
+            path
+            sourceUrl
+            title
+            uploadStatus
+          }
+          image2 {
+            _id
+            caption
+            credit
+            description
+            filename
+            mimeType
+            path
+            sourceUrl
+            title
+            uploadStatus
+          }
+          image3 {
+            _id
+            caption
+            credit
+            description
+            filename
+            mimeType
+            path
+            sourceUrl
+            title
+            uploadStatus
+          }
+          image4 {
+            _id
+            caption
+            credit
+            description
+            filename
+            mimeType
+            path
+            sourceUrl
+            title
+            uploadStatus
+          }
+          image5 {
+            _id
+            caption
+            credit
+            description
+            filename
+            mimeType
+            path
+            sourceUrl
+            title
+            uploadStatus
+          }
+        }
+        markdown
+        tag {
+          _id
+          name
+        }
+        title
+      }
+    }    
+    `
   );
   return data;
 }

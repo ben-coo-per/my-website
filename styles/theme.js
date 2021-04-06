@@ -4,27 +4,28 @@ const colors = {
   darkChocolate: "#261C15",
   queenBlue: "#33658A",
   babyPowder: "#FFFFF8",
+  ghostGray: "ECECEC",
   flame: "#F05D23",
-  white: "#F7F7F3",
+  bg: "#F7F7F3",
 };
 
 const textStyles = {
   h1: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "700",
     fontSize: "100px",
     letterSpacing: "-1.8%",
     color: "darkChocolate",
   },
   h2: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "700",
     fontSize: "72px",
     letterSpacing: "-1.5%",
     color: "darkChocolate",
   },
   h3: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "700",
     fontSize: "50px",
     lineheight: "57.45px",
@@ -32,7 +33,7 @@ const textStyles = {
     color: "darkChocolate",
   },
   h4: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "700",
     fontSize: "36px",
     lineheight: "57.45px",
@@ -40,7 +41,7 @@ const textStyles = {
     color: "darkChocolate",
   },
   h5: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "700",
     fontSize: "24px",
     lineheight: "57.45px",
@@ -48,21 +49,22 @@ const textStyles = {
     color: "darkChocolate",
   },
   subtitle: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "400",
-    fontSize: "30px",
-    lineheight: "34.47px",
+    fontSize: "50px",
+    lineheight: "60.51px",
     color: "darkChocolate",
   },
+
   bold: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "700",
     fontSize: "24px",
     lineheight: "27.58px",
     color: "darkChocolate",
   },
   body: {
-    fontFamily: "Ubuntu, Roboto, sans-serif",
+    fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "400",
     fontSize: "24px",
     lineheight: "34.47px",
@@ -74,13 +76,27 @@ const textStyles = {
     fontSize: "14px",
     color: "darkChocolate",
   },
+  link: {
+    fontFamily: "Inter, Roboto, sans-serif",
+    fontWeight: "400",
+    fontSize: "18px",
+    lineheight: "60.51px",
+    color: "darkChocolate",
+  },
+  selectedLink: {
+    fontFamily: "Inter, Roboto, sans-serif",
+    fontWeight: "700",
+    fontSize: "18px",
+    lineheight: "60.51px",
+    color: "queenBlue",
+  },
 };
 
 const styles = {
   global: (props) => ({
     "html, body": {
       color: colors.darkChocolate,
-      bg: colors.white,
+      bg: colors.bg,
     },
     a: {
       color: "secondary.100",

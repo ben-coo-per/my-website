@@ -1,9 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
-import { Box, Container, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Container, Stack, Text } from "@chakra-ui/react";
 
 import Footer from "../src/components/shared/footer";
 import { Brand, Header } from "../src/components/shared/pageHeader";
+import {
+  HiOutlineEmojiHappy,
+  HiOutlineBriefcase,
+  HiOutlineSparkles,
+} from "react-icons/hi";
 import { Default, Hover } from "../src/svg/BenLogo";
 
 export default function Home() {
@@ -15,25 +20,51 @@ export default function Home() {
       </Head>
 
       <main>
-        <Brand />
+        {/* <Brand /> */}
 
-        <Container maxW="container.xl" minH="100vh" pt={{ base: 32, sm: 20 }}>
-          <Text textStyle={{ md: "h1", sm: "h2", base: "h3" }}>
-            Hey, I'm Ben
-          </Text>
-          <Text textStyle={{ md: "h2", sm: "h3", base: "h4" }}>
-            Welcome to my website
-          </Text>
+        <Container maxW="container.lg" minH="100vh" p={{ base: 5 }}>
           <Stack
-            py={{ sm: 20, base: 5 }}
-            direction={{ base: "column", sm: "row" }}
-            spacing={{ md: 20, base: 5 }}
+            spacing={{ base: 10, sm: 20 }}
+            align={{ base: "center", sm: "flex-start" }}
           >
-            <HomePageLink text="about" href="/about" />
-            <HomePageLink text="work" href="/work" />
-            <HomePageLink text="art" href="/art" />
-            {/* <HomePageLink text="beer" />
+            <Default h={{ base: 20 }} w={{ base: 20 }} />
+            <Box>
+              <Text
+                align={{ base: "center", sm: "left" }}
+                textStyle={{ base: "h4", sm: "h2" }}
+              >
+                Hey, I'm Ben
+              </Text>
+              <Text
+                align={{ base: "center", sm: "left" }}
+                textStyle={{ base: "link", sm: "subtitle" }}
+              >
+                Welcome to my website
+              </Text>
+              <Stack
+                py={{ base: 20, sm: 10 }}
+                direction={{ base: "column", sm: "row" }}
+                spacing={{ md: 20, base: 5 }}
+              >
+                <HomePageLink
+                  text="about"
+                  href="/about"
+                  icon={<HiOutlineEmojiHappy />}
+                />
+                <HomePageLink
+                  text="work"
+                  href="/work"
+                  icon={<HiOutlineBriefcase />}
+                />
+                <HomePageLink
+                  text="art"
+                  href="/art"
+                  icon={<HiOutlineSparkles />}
+                />
+                {/* <HomePageLink text="beer" />
             <HomePageLink text="blog" /> */}
+              </Stack>
+            </Box>
           </Stack>
         </Container>
       </main>
@@ -45,17 +76,21 @@ export default function Home() {
   );
 }
 
-function HomePageLink({ href = "/", text }) {
+function HomePageLink({ href = "/", text, icon, hoverIcon }) {
   return (
     <Link href={href}>
-      <a>
-        <Text
-          textStyle={{ md: "h3", sm: "h4", base: "h5" }}
-          _hover={{ textDecoration: "underline" }}
-        >
-          {text}
-        </Text>
-      </a>
+      <Button
+        variant="link"
+        leftIcon={icon}
+        color="darkChocolate"
+        _hover={{
+          color: "queenBlue",
+          textStyle: "selectedLink",
+        }}
+        textStyle="link"
+      >
+        <Text>{text}</Text>
+      </Button>
     </Link>
   );
 }
