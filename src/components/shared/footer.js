@@ -1,4 +1,4 @@
-import { Box, Icon, IconButton, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, Icon, IconButton, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import {
   FaTwitter,
@@ -6,7 +6,7 @@ import {
   FaDribbble,
   FaEnvelope,
 } from "react-icons/fa";
-import { HiOutlineMail, HiOutlineGlobe } from "react-icons/hi";
+import { HiOutlineGlobe } from "react-icons/hi";
 
 export default function Footer() {
   return (
@@ -18,8 +18,8 @@ export default function Footer() {
       mt={10}
       mb={-2}
     >
-      <Stack direction="column">
-        <Stack direction="row" spacing={0}>
+      <Stack direction="column" justify="center">
+        <Stack direction="row" justify="center" spacing={0}>
           <Link href="https://twitter.com/cooperben83">
             <IconButton variant="link" color="babyPowder">
               <Icon as={FaTwitter} />
@@ -40,6 +40,13 @@ export default function Footer() {
               <Icon as={FaEnvelope} />
             </IconButton>
           </Link>
+        </Stack>
+        <Stack direction="column" spacing={0}>
+          <Text color="babyPowder">Built with Next JS & Chakra UI</Text>
+          <Flex justify="center" align="center">
+            <Text color="babyPowder">in Austin, TX</Text>
+            <Icon color="babyPowder" as={HiOutlineGlobe} />
+          </Flex>
         </Stack>
       </Stack>
     </Stack>

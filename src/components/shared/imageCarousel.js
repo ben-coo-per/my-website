@@ -47,17 +47,22 @@ export default function ImageCarousel({ images }) {
 
     return (
       <Center bg="princeGray" borderRadius="lg">
-        <Skeleton isLoaded={!slideIsLoading}>
-          <Image
-            onLoad={() => setSlideIsLoading(false)}
-            borderRadius="lg"
-            // maxH="50vh"
-            // minH="30vh"
-            h={{ base: "200px", sm: "400px" }}
-            src={`https://images.takeshape.io/${img.path}`}
-            alt={img.description}
-          />
-        </Skeleton>
+        <Stack direction="column">
+          <Skeleton isLoaded={!slideIsLoading}>
+            <Image
+              onLoad={() => setSlideIsLoading(false)}
+              borderRadius="lg"
+              // maxH="50vh"
+              // minH="30vh"
+              h={{ base: "180px", sm: "225px", md: "325px", lg: "380px" }}
+              src={`https://images.takeshape.io/${img.path}`}
+              alt={img.description}
+            />
+          </Skeleton>
+          <Text align="center" textStyle="caption">
+            {img.description}
+          </Text>
+        </Stack>
       </Center>
     );
   };
