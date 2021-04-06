@@ -1,7 +1,0 @@
-module.exports = {
-  env: {
-    TAKESHAPE_API_KEY: "cd0c537d53e74773af25299c07dca0d1",
-    TAKESHAPE_PROJECT_ID: "22d50a8a-e977-4cb2-8431-b3bd32be9a94",
-    TAKESHAPE_PREVIEW_SECRET: "I_LIKE_SECRETS",
-  },
-};
