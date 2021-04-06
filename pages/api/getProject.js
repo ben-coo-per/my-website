@@ -24,7 +24,7 @@ const fetchData = async (query, { variables } = {}) => {
   return responseJson.data;
 };
 
-// get all posts to display on landing page
+// get all posts to display on work page
 export async function getAllWork() {
   const data = await fetchData(
     `query AllWork {
@@ -56,6 +56,40 @@ export async function getAllWork() {
   return data;
 }
 
+// get all posts to display on art page
+
+export async function getAllArt() {
+  const data = await fetchData(
+    `query AllWork {
+        art:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "art"}}}) {
+          items {
+            _id
+            date
+            description
+            thumbnail {
+              _id
+              caption
+              credit
+              description
+              filename
+              mimeType
+              path
+              sourceUrl
+              title
+              uploadStatus
+            }
+            tag {
+              name
+            }
+            title
+          }
+        }
+      }`
+  );
+  return data;
+}
+
+// get specific project based on _id
 export async function getProject(_id) {
   const data = await fetchData(
     `query Project($_id: ID = "${_id}") {

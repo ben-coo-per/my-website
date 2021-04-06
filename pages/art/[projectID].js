@@ -22,6 +22,8 @@ import {
 import { getProject } from "../api/getProject";
 import ImageCarousel from "../../src/components/shared/imageCarousel";
 
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+
 function initialState(args) {
   return {
     response: null,
@@ -45,7 +47,7 @@ export default function AboutPage() {
 
         <ProjectPage
           pageTitle={router.query.projectID}
-          backURL="/work"
+          backURL="/art"
           isLoading
         >
           <Text textStyle="body">{}</Text>
@@ -107,7 +109,7 @@ export default function AboutPage() {
 
         <ProjectPage
           pageTitle={router.query.projectID}
-          backURL="/work"
+          backURL="/art"
           isLoading
         ></ProjectPage>
       </div>
@@ -122,7 +124,7 @@ export default function AboutPage() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <ProjectPage pageTitle="404" backURL="/work" error />
+        <ProjectPage pageTitle="404" backURL="/art" error />
       </>
     );
   }
@@ -134,7 +136,7 @@ export default function AboutPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ProjectPage project={state.response.project} backURL="/work">
+      <ProjectPage project={state.response.project} backURL="/art">
         <Text align="center" textStyle="h3">
           {state.response.project.title}
         </Text>
