@@ -1,6 +1,13 @@
 import { useState } from "react";
 import Link from "next/link";
-import { Box, Text, Image, Skeleton, SkeletonText } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Text,
+  Image,
+  Skeleton,
+  SkeletonText,
+} from "@chakra-ui/react";
 
 function WorkCard({ project }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
@@ -18,15 +25,15 @@ function WorkCard({ project }) {
           p={2}
         >
           <Skeleton isLoaded={imageIsLoaded}>
-            <Box bg="princeGray" borderRadius="lg">
+            <Center bg="princeGray" borderRadius="lg" h="400px">
               <Image
                 onLoad={() => setImageIsLoaded(true)}
                 borderRadius="lg"
-                h="400px"
+                maxH="400px"
                 src={`https://images.takeshape.io/${project.thumbnail.path}`}
                 alt={project.imageAlt}
               />
-            </Box>
+            </Center>
           </Skeleton>
           <Box p="6">
             <Text textStyle="h4" align="center">

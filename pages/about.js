@@ -53,8 +53,8 @@ export default function AboutPage() {
                 I am a designer and product developer based in Austin, TX.
                 <br />
                 <br />
-                I design and build with the intention of improving the way we
-                interact with our world and each other.
+                I design and build with the intention of making the way we
+                interact with our world more fulfilling and sustainable.
                 <br />
                 <br />
                 {/* I went to school for chemical engineering but learned I was more
