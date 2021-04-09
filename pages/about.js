@@ -66,8 +66,7 @@ export default function AboutPage() {
               I am currently working on a start up aimed at making interacting
               with local politicians easy, inclusive, and impactful.
               <br /> */}
-                I like watching movies when it rains and riding my bike when it
-                doesn’t.
+                I like reading when it rains and riding my bike when it doesn’t.
               </Text>
             </Box>
           </Stack>
