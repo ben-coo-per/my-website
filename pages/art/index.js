@@ -81,11 +81,11 @@ export default function WorkPage() {
   return (
     <>
       <Head>
-        <title>art</title>
+        <title>junk</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DisplayPage pageTitle="art" backURL="/">
+      <DisplayPage pageTitle="other stuff" backURL="/">
         {state.response.art.items.map((project) => (
           <WorkCard key={project._id} project={project} />
         ))}
