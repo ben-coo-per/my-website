@@ -60,7 +60,7 @@ export default function WorkPage() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <DisplayPage pageTitle="art" backURL="/" isLoading />
+        <DisplayPage pageTitle="other stuff" backURL="/" isLoading />
       </>
     );
   }
@@ -69,11 +69,11 @@ export default function WorkPage() {
     return (
       <>
         <Head>
-          <title>art</title>
+          <title>junk</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <DisplayPage pageTitle="art" backURL="/" error />
+        <DisplayPage pageTitle="other stuff" backURL="/" error />
       </>
     );
   }

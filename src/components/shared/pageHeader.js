@@ -145,8 +145,14 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
           <NavLink
             text="junk"
             href="/art"
-            isSelected={pageTitle === "art"}
-            icon={pageTitle === "art" ? <HiSparkles /> : <HiOutlineSparkles />}
+            isSelected={pageTitle === "other stuff"}
+            icon={
+              pageTitle === "other stuff" ? (
+                <HiSparkles />
+              ) : (
+                <HiOutlineSparkles />
+              )
+            }
           />
         </Stack>
       </Stack>
@@ -184,8 +190,10 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
         <NavLink
           text="junk"
           href="/art"
-          isSelected={pageTitle === "art"}
-          icon={pageTitle === "art" ? <HiSparkles /> : <HiOutlineSparkles />}
+          isSelected={pageTitle === "other stuff"}
+          icon={
+            pageTitle === "other stuff" ? <HiSparkles /> : <HiOutlineSparkles />
+          }
         />
       </Stack>
     </Stack>
