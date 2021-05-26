@@ -57,7 +57,6 @@ export async function getAllWork() {
 }
 
 // get all posts to display on art page
-
 export async function getAllArt() {
   const data = await fetchData(
     `query AllWork {

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
 // import { DisplayPage } from "../../src/components/shared/layout";
 import { Header } from "../src/components/shared/pageHeader";
 import {
   Box,
-  Image,
+  // Image,
   Text,
   Container,
   SimpleGrid,
@@ -15,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import Footer from "../src/components/shared/footer";
 
-export default function AboutPage() {
+export default function AboutPage(props) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isSmall = useBreakpointValue({ base: true, md: false });
   return (
@@ -41,11 +42,18 @@ export default function AboutPage() {
               >
                 <Image
                   onLoad={() => setImageIsLoaded(true)}
+                  src="https://images.takeshape.io/22d50a8a-e977-4cb2-8431-b3bd32be9a94/dev/99baa90e-754d-41fe-94ce-83125602003d/IMG_3785%20copy.jpg?auto=format%2Ccompress"
+                  alt="ben headshot"
+                  width={500}
+                  height={570}
+                />
+                {/* <Image
+                  onLoad={() => setImageIsLoaded(true)}
                   borderRadius="lg"
                   maxH={{ base: null, sm: "70vh" }}
                   src="https://images.takeshape.io/22d50a8a-e977-4cb2-8431-b3bd32be9a94/dev/99baa90e-754d-41fe-94ce-83125602003d/IMG_3785%20copy.jpg?auto=format%2Ccompress"
                   alt="ben headshot"
-                />
+                /> */}
               </Skeleton>
             </Box>
             <Box h="full" w={{ base: "full", sm: 3 / 5 }} p={4}>
@@ -76,3 +84,15 @@ export default function AboutPage() {
     </>
   );
 }
+
+// export async function getStaticProps() {
+//   const res = await fetch(
+//     "https://images.takeshape.io/22d50a8a-e977-4cb2-8431-b3bd32be9a94/dev/99baa90e-754d-41fe-94ce-83125602003d/IMG_3785%20copy.jpg?auto=format%2Ccompress"
+//   );
+//   // const data = await res.json();
+//   console.log(data);
+
+//   return {
+//     props: { data }, // will be passed to the page component as props
+//   };
+// }
