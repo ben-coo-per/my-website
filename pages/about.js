@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-// import { DisplayPage } from "../../src/components/shared/layout";
+import { getBio } from "./api/getBio";
 import { Header } from "../src/components/shared/pageHeader";
+import ReactMarkdown from "react-markdown";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import {
   Box,
   // Image,
@@ -16,9 +18,10 @@ import {
 } from "@chakra-ui/react";
 import Footer from "../src/components/shared/footer";
 
-export default function AboutPage(props) {
+export default function AboutPage({ bio }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isSmall = useBreakpointValue({ base: true, md: false });
+
   return (
     <>
       <Head>
@@ -29,53 +32,43 @@ export default function AboutPage(props) {
       <Header pageTitle="about" backURL="/" />
       <Container maxW="container.xl" pt={16} minH="100vh">
         <Center>
-          <Stack direction={{ base: "column", sm: "row-reverse" }} pt={3}>
+          <Stack
+            direction={{ base: "column", md: "row-reverse" }}
+            align={{ base: "center", md: "left" }}
+            pt={3}
+          >
             {isSmall && (
               <Text align="center" textStyle="h4">
                 about me
               </Text>
             )}
-            <Box w={{ base: "full", sm: 2 / 5 }}>
+            <Box>
               <Skeleton
                 isLoaded={imageIsLoaded}
                 h={!imageIsLoaded ? "60vh" : null}
+                w={{ base: "full" }}
               >
                 <Image
                   onLoad={() => setImageIsLoaded(true)}
-                  src="https://images.takeshape.io/22d50a8a-e977-4cb2-8431-b3bd32be9a94/dev/99baa90e-754d-41fe-94ce-83125602003d/IMG_3785%20copy.jpg?auto=format%2Ccompress"
+                  src={`https://images.takeshape.io/${bio.asset.path}`}
                   alt="ben headshot"
-                  width={500}
-                  height={570}
+                  width={550}
+                  height={550}
                 />
-                {/* <Image
-                  onLoad={() => setImageIsLoaded(true)}
-                  borderRadius="lg"
-                  maxH={{ base: null, sm: "70vh" }}
-                  src="https://images.takeshape.io/22d50a8a-e977-4cb2-8431-b3bd32be9a94/dev/99baa90e-754d-41fe-94ce-83125602003d/IMG_3785%20copy.jpg?auto=format%2Ccompress"
-                  alt="ben headshot"
-                /> */}
               </Skeleton>
             </Box>
-            <Box h="full" w={{ base: "full", sm: 3 / 5 }} p={4}>
-              <Text textStyle="body">
-                I am a designer and product developer based in Austin, TX.
-                <br />
-                <br />
-                I design and build with the intention of making the way we
-                interact with our world more fulfilling and sustainable.
-                <br />
-                <br />
-                {/* I went to school for chemical engineering but learned I was more
-              suited to product development. <br />
-              <br />
-              After graduation, I began working at Accenture and gained
-              experience running development teams & managing a product. <br />
-              <br />
-              I am currently working on a start up aimed at making interacting
-              with local politicians easy, inclusive, and impactful.
-              <br /> */}
-                I like reading when it rains and riding my bike when it doesn’t.
-              </Text>
+            <Box
+              h="full"
+              w={{ base: "full", sm: 3 / 5 }}
+              p={4}
+              textStyle="body"
+            >
+              {/* <Text textStyle="body">{bio.markdown}</Text> */}
+              <ReactMarkdown
+                renderers={ChakraUIRenderer()}
+                source={bio.markdown}
+                escapeHtml={true}
+              />
             </Box>
           </Stack>
         </Center>
@@ -85,14 +78,8 @@ export default function AboutPage(props) {
   );
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch(
-//     "https://images.takeshape.io/22d50a8a-e977-4cb2-8431-b3bd32be9a94/dev/99baa90e-754d-41fe-94ce-83125602003d/IMG_3785%20copy.jpg?auto=format%2Ccompress"
-//   );
-//   // const data = await res.json();
-//   console.log(data);
-
-//   return {
-//     props: { data }, // will be passed to the page component as props
-//   };
-// }
+export async function getStaticProps() {
+  const res = await getBio();
+  // console.log(res);
+  return { props: res };
+}
