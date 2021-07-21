@@ -63,6 +63,11 @@ export default function AboutPage({ bio }) {
               p={4}
               textStyle="body"
             >
+              {!isSmall && (
+                <Text align="left" textStyle="h4" mb={4}>
+                  about me
+                </Text>
+              )}
               {/* <Text textStyle="body">{bio.markdown}</Text> */}
               <ReactMarkdown
                 renderers={ChakraUIRenderer()}

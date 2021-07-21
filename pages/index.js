@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>&#128075; hey</title>
+        <title>🔩 Ben Cooper</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
