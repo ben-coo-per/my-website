@@ -22,6 +22,11 @@ export default function AboutPage({ bio }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isSmall = useBreakpointValue({ base: true, md: false });
 
+  const myLoader = ({ src, width, quality }) => {
+    return `https://images.takeshape.io/${src}?w=${width}&q=${quality || 75}`
+  }
+
+
   return (
     <>
       <Head>
@@ -42,18 +47,17 @@ export default function AboutPage({ bio }) {
                 about me
               </Text>
             )}
-            <Box>
-              <Skeleton
-                isLoaded={imageIsLoaded}
-                h={!imageIsLoaded ? "60vh" : null}
-                w={{ base: "full" }}
-              >
+            <Box h="60vh" w={550}>
+              <Skeleton isLoaded={imageIsLoaded}>
                 <Image
                   onLoad={() => setImageIsLoaded(true)}
-                  src={`https://images.takeshape.io/${bio.asset.path}`}
-                  alt="ben headshot"
+                  
+                  src={bio.asset.path}
+                  loader={myLoader}
+                  alt="picture of me"
                   width={550}
                   height={550}
+                  
                 />
               </Skeleton>
             </Box>
