@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Link from "next/link";
 import {
   Box,
   Container,
@@ -14,6 +13,8 @@ import { Header } from "./pageHeader";
 import { SkeletonCard } from "./cards";
 
 import Footer from "./footer";
+import { FilterSelection } from "./filterSelection";
+import { SelectionBlurb } from "./SelectionBlurb";
 
 function DisplayPage({
   children,
@@ -38,6 +39,7 @@ function DisplayPage({
             pb={8}
             px={{ base: null, lg: 16 }}
           >
+            <FilterSelection />
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} pt={3}>
               <SkeletonCard />
               <SkeletonCard />
@@ -59,6 +61,7 @@ function DisplayPage({
         <main>
           <Header pageTitle={pageTitle} backURL={backURL} />
           <Container maxW="container.xl" minH="100vh" pt={16} pb={14}>
+            <FilterSelection />
             <Stack bg="">
               <Text color="darkChocolate" textStyle="h4" align="center">
                 Oops!
@@ -77,6 +80,7 @@ function DisplayPage({
     );
   }
   const isSmall = useBreakpointValue({ base: true, md: false });
+
   return (
     <>
       <main>
@@ -88,11 +92,16 @@ function DisplayPage({
           pb={8}
           px={{ base: null, lg: 16 }}
         >
-          {isSmall && (
-            <Text align="center" textStyle="h4">
-              {pageTitle}
-            </Text>
-          )}
+          <Text
+            align={isSmall ? "center" : "left"}
+            px={isSmall ? null : 8}
+            textStyle="h4"
+          >
+            {pageTitle}
+          </Text>
+
+          <FilterSelection />
+          <SelectionBlurb />
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} pt={3}>
             {children}
           </SimpleGrid>

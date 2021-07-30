@@ -3,24 +3,10 @@ import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { ProjectPage } from "../../src/components/shared/layout";
-import {
-  Box,
-  Center,
-  Container,
-  Image,
-  Text,
-  Skeleton,
-  Button,
-  Stack,
-  Circle,
-  Fade,
-  IconButton,
-  Icon,
-  Divider,
-} from "@chakra-ui/react";
+import { ProjectPage } from "../../src/components/layout";
+import { Text } from "@chakra-ui/react";
 import { getProject } from "../api/getProject";
-import ImageCarousel from "../../src/components/shared/imageCarousel";
+import ImageCarousel from "../../src/components/imageCarousel";
 
 function initialState(args) {
   return {

@@ -13,7 +13,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { Default, Hover } from "../../svg/BenLogo";
+import { Default, Hover } from "../svg/BenLogo";
 import {
   HiArrowLeft,
   HiOutlineEmojiHappy,
@@ -24,55 +24,7 @@ import {
   HiSparkles,
 } from "react-icons/hi";
 
-function Header({ pageTitle, backURL = "/", isLoading = false }) {
-  if (isLoading) {
-    return (
-      <Stack
-        position="fixed"
-        top={0}
-        zIndex={30}
-        bg="bg"
-        boxShadow={`0px 10px 10px #F7F7F3`}
-        w="full"
-        direction="row"
-        p={4}
-        justify="space-between"
-        px={40}
-      >
-        <NavLink text="back" href={backURL} icon={<HiArrowLeft />} />
-        <Stack direction="row" spacing={{ base: 2, sm: 10 }}>
-          <NavLink
-            text="about"
-            href="/about"
-            isSelected={pageTitle === "about"}
-            icon={
-              pageTitle === "about" ? <HiEmojiHappy /> : <HiOutlineEmojiHappy />
-            }
-          />
-          <NavLink
-            text="work"
-            href="/work"
-            isSelected={pageTitle === "work"}
-            icon={
-              pageTitle === "work" ? <HiBriefcase /> : <HiOutlineBriefcase />
-            }
-          />
-          <NavLink
-            text="junk"
-            href="/art"
-            isSelected={pageTitle === "other stuff"}
-            icon={
-              pageTitle === "other stuff" ? (
-                <HiSparkles />
-              ) : (
-                <HiOutlineSparkles />
-              )
-            }
-          />
-        </Stack>
-      </Stack>
-    );
-  }
+function Header({ pageTitle, backURL = "/" }) {
   return (
     <Stack
       position="fixed"
@@ -98,17 +50,11 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
           }
         />
         <NavLink
-          text="work"
+          text="my work"
           href="/work"
-          isSelected={pageTitle === "work"}
-          icon={pageTitle === "work" ? <HiBriefcase /> : <HiOutlineBriefcase />}
-        />
-        <NavLink
-          text="junk"
-          href="/art"
-          isSelected={pageTitle === "other stuff"}
+          isSelected={pageTitle === "my work"}
           icon={
-            pageTitle === "other stuff" ? <HiSparkles /> : <HiOutlineSparkles />
+            pageTitle === "my work" ? <HiBriefcase /> : <HiOutlineBriefcase />
           }
         />
       </Stack>
@@ -154,7 +100,6 @@ function NavLink({ href = "/", text, icon, isSelected }) {
           color={isSelected ? "queenBlue" : "darkChocolate"}
           _hover={{
             color: "queenBlue",
-            textStyle: "selectedLink",
           }}
           textStyle={isSelected ? "selectedLink" : "link"}
         >

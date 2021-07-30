@@ -13,7 +13,7 @@ function WorkCard({ project }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
 
   return (
-    <Link href={`/${project.tag[0].name}/${project._id}`}>
+    <Link href={`work/${project._id}`}>
       <a>
         <Box
           // borderWidth="1px"

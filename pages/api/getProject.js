@@ -28,7 +28,7 @@ const fetchData = async (query, { variables } = {}) => {
 export async function getProudOf() {
   const data = await fetchData(
     `query AllWork {
-        work:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "proud of"}}}) {
+        getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "proud of"}}}) {
           items {
             _id
             date
@@ -60,7 +60,7 @@ export async function getProudOf() {
 export async function getOkay() {
   const data = await fetchData(
     `query AllWork {
-        art:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "okay"}}}) {
+        getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "okay"}}}) {
           items {
             _id
             date
@@ -92,7 +92,7 @@ export async function getOkay() {
 export async function getMostlyJunk() {
   const data = await fetchData(
     `query AllWork {
-        art:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "mostly junk"}}}) {
+        getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "mostly junk"}}}) {
           items {
             _id
             date

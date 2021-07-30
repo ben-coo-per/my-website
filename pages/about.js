@@ -2,7 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { getBio } from "./api/getBio";
-import { Header } from "../src/components/shared/pageHeader";
+import { Header } from "../src/components/pageHeader";
 import ReactMarkdown from "react-markdown";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import {
@@ -16,16 +16,15 @@ import {
   Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import Footer from "../src/components/shared/footer";
+import Footer from "../src/components/footer";
 
 export default function AboutPage({ bio }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const isSmall = useBreakpointValue({ base: true, md: false });
 
   const myLoader = ({ src, width, quality }) => {
-    return `https://images.takeshape.io/${src}?w=${width}&q=${quality || 75}`
-  }
-
+    return `https://images.takeshape.io/${src}?w=${width}&q=${quality || 75}`;
+  };
 
   return (
     <>
@@ -51,13 +50,11 @@ export default function AboutPage({ bio }) {
               <Skeleton isLoaded={imageIsLoaded}>
                 <Image
                   onLoad={() => setImageIsLoaded(true)}
-                  
                   src={bio.asset.path}
                   loader={myLoader}
                   alt="picture of me"
                   width={550}
                   height={550}
-                  
                 />
               </Skeleton>
             </Box>

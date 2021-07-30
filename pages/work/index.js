@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-import { DisplayPage } from "../../src/components/shared/layout";
-import { WorkCard } from "../../src/components/shared/cards";
+import { DisplayPage } from "../../src/components/layout";
+import { WorkCard } from "../../src/components/cards";
 import { getProudOf, getOkay, getMostlyJunk } from "../api/getProject";
+import { useSelector } from "react-redux";
+import { selectFilter } from "../../features/projects/projectsSlice";
 
 function initialState(args) {
   return {
@@ -14,46 +16,44 @@ function initialState(args) {
   };
 }
 
+const functionMapper = {
+  "proud of": getProudOf(),
+  okay: getOkay(),
+  "mostly junk": getMostlyJunk(),
+};
+
 export default function WorkPage() {
   const [state, setState] = useState(() => initialState());
-  const [filter, setFilter] = useState("proud of");
+  const filter = useSelector(selectFilter).filter;
 
   useEffect(() => {
     // Fetch Post from DB
     const fetchData = async () => {
       try {
-        // if(filter === 'proud')
-        const res = await getProudOf();
+        const res = await functionMapper[filter];
 
         if (res) {
-          setState(
-            initialState({
-              response: res,
-              isLoading: false,
-            })
-          );
+          setState({ ...state, response: res, isLoading: false });
         } else {
-          setState(
-            initialState({
-              error: res,
-              isLoading: false,
-            })
-          );
+          setState({
+            ...state,
+            error: res,
+            isLoading: false,
+          });
         }
       } catch (error) {
-        setState(
-          initialState({
-            error: {
-              error: error.message,
-            },
-            isLoading: false,
-          })
-        );
+        setState({
+          ...state,
+          error: {
+            error: error.message,
+          },
+          isLoading: false,
+        });
       }
     };
 
     fetchData();
-  }, []);
+  }, [filter]);
 
   if (state.isLoading) {
     return (
@@ -63,7 +63,7 @@ export default function WorkPage() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <DisplayPage pageTitle="work" backURL="/" isLoading />
+        <DisplayPage pageTitle="my work" backURL="/" isLoading />
       </>
     );
   }
@@ -76,7 +76,7 @@ export default function WorkPage() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <DisplayPage pageTitle="work" backURL="/" error />
+        <DisplayPage pageTitle="my work" backURL="/" error />
       </>
     );
   }
@@ -88,8 +88,8 @@ export default function WorkPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <DisplayPage pageTitle="work" backURL="/">
-        {state.response.work.items.map((project) => (
+      <DisplayPage pageTitle="my work" backURL="/">
+        {state.response.getProjectList.items.map((project) => (
           <WorkCard key={project._id} project={project} />
         ))}
       </DisplayPage>

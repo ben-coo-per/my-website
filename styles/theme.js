@@ -52,7 +52,7 @@ const textStyles = {
   subtitle: {
     fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "400",
-    fontSize: "50px",
+    fontSize: "30px",
     lineheight: "60.51px",
     color: "darkChocolate",
   },
@@ -67,7 +67,7 @@ const textStyles = {
   body: {
     fontFamily: "Inter, Roboto, sans-serif",
     fontWeight: "400",
-    fontSize: "24px",
+    fontSize: "18px",
     lineheight: "34.47px",
     color: "darkChocolate",
   },
@@ -86,7 +86,6 @@ const textStyles = {
   },
   selectedLink: {
     fontFamily: "Inter, Roboto, sans-serif",
-    fontWeight: "700",
     fontSize: "18px",
     lineheight: "60.51px",
     color: "queenBlue",

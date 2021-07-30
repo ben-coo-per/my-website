@@ -2,8 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { Box, Button, Container, Stack, Text } from "@chakra-ui/react";
 
-import Footer from "../src/components/shared/footer";
-import { Brand, Header } from "../src/components/shared/pageHeader";
+import Footer from "../src/components/footer";
+import { Brand, Header } from "../src/components/pageHeader";
 import {
   HiOutlineEmojiHappy,
   HiOutlineBriefcase,
@@ -44,23 +44,19 @@ export default function Home() {
               <Stack
                 py={{ base: 20, sm: 10 }}
                 direction={{ base: "column", sm: "row" }}
-                spacing={{ md: 20, base: 5 }}
+                spacing={{ md: 16, base: 5 }}
               >
                 <HomePageLink
-                  text="about"
+                  text="about me"
                   href="/about"
                   icon={<HiOutlineEmojiHappy />}
                 />
                 <HomePageLink
-                  text="work"
+                  text="my work"
                   href="/work"
                   icon={<HiOutlineBriefcase />}
                 />
-                <HomePageLink
-                  text="junk"
-                  href="/art"
-                  icon={<HiOutlineSparkles />}
-                />
+
                 {/* <HomePageLink text="beer" />
             <HomePageLink text="blog" /> */}
               </Stack>
