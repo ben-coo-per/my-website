@@ -20,7 +20,7 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 export default function ImageCarousel({ images }) {
   const [step, setStep] = useState(0);
   const [slideIsLoading, setSlideIsLoading] = useState(true);
-
+  
   function handleForward() {
     setSlideIsLoading(true);
     if (step + 1 > images.length - 1) {

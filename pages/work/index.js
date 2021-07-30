@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import { DisplayPage } from "../../src/components/shared/layout";
 import { WorkCard } from "../../src/components/shared/cards";
-import { getAllWork } from "../api/getProject";
+import { getProudOf, getOkay, getMostlyJunk } from "../api/getProject";
 
 function initialState(args) {
   return {
@@ -16,12 +16,14 @@ function initialState(args) {
 
 export default function WorkPage() {
   const [state, setState] = useState(() => initialState());
+  const [filter, setFilter] = useState("proud of");
 
   useEffect(() => {
     // Fetch Post from DB
     const fetchData = async () => {
       try {
-        const res = await getAllWork();
+        // if(filter === 'proud')
+        const res = await getProudOf();
 
         if (res) {
           setState(
@@ -49,6 +51,7 @@ export default function WorkPage() {
         );
       }
     };
+
     fetchData();
   }, []);
 

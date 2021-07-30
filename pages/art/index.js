@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import { DisplayPage } from "../../src/components/shared/layout";
 import { WorkCard } from "../../src/components/shared/cards";
-import { getAllArt } from "../api/getProject";
+import { getOkay } from "../api/getProject";
 
 function initialState(args) {
   return {
@@ -21,7 +21,7 @@ export default function WorkPage() {
     // Fetch Post from DB
     const fetchData = async () => {
       try {
-        const res = await getAllArt();
+        const res = await getOkay();
 
         if (res) {
           setState(

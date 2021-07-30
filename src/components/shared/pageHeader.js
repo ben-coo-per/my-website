@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Container,
   Grid,
   GridItem,
   Icon,
@@ -23,93 +24,6 @@ import {
   HiSparkles,
 } from "react-icons/hi";
 
-// function Header({ pageTitle, backURL = "/", isLoading = false }) {
-//   if (isLoading) {
-//     return (
-//       <Grid
-//         position="fixed"
-//         top={0}
-//         bg="white"
-//         w="full"
-//         h={{ base: 32, sm: 40, md: 48 }}
-//         templateRows="repeat(3, 1fr)"
-//         templateColumns="repeat(5, 1fr)"
-//         gap={2}
-//         p={4}
-//         zIndex={30}
-//       >
-//         <GridItem colSpan={3}>
-//           <Link href={backURL}>
-//             <Button variant="link" leftIcon={<HiArrowLeft />} textStyle="body">
-//               back
-//             </Button>
-//           </Link>
-//         </GridItem>
-
-//         <GridItem rowSpan={3} colSpan={2}>
-//           <Stack p={3} direction="row" justify="flex-end">
-//             <Link href="/">
-//               <Button
-//                 variant="link"
-//                 leftIcon={<HiArrowLeft />}
-//                 textStyle="body"
-//               >
-//                 back
-//               </Button>
-//             </Link>
-//           </Stack>
-//         </GridItem>
-//         <GridItem rowSpan={2} colSpan={3}>
-//           <Skeleton>
-//             <Text textStyle={{ md: "h3", sm: "h4", base: "h5" }}>
-//               pageTitle
-//             </Text>
-//           </Skeleton>
-//         </GridItem>
-//       </Grid>
-//     );
-//   }
-//   return (
-//     <Grid
-//       position="fixed"
-//       top={0}
-//       bg="bg"
-//       boxShadow={`0px 10px 10px #F7F7F3`}
-//       w="full"
-//       h={{ base: 32, sm: 40, md: 48 }}
-//       templateRows="repeat(3, 1fr)"
-//       templateColumns="repeat(5, 1fr)"
-//       gap={2}
-//       p={4}
-//       zIndex={30}
-//     >
-//       <GridItem colSpan={3}>
-//         <Link href={backURL}>
-//           <Button variant="link" leftIcon={<HiArrowLeft />} textStyle="body">
-//             back
-//           </Button>
-//         </Link>
-//       </GridItem>
-
-//       <GridItem rowSpan={2} colSpan={2}>
-//         <Stack p={3} direction="row" justify="flex-end">
-//           <Link href="/">
-//             <a>
-//               <Default
-//                 h={{ base: 20, md: 24, lg: 28 }}
-//                 w={{ base: 20, md: 24, lg: 28 }}
-//               />
-//             </a>
-//           </Link>
-//         </Stack>
-//       </GridItem>
-//       <GridItem rowSpan={3} colSpan={3} mt={-3}>
-//         <Text textStyle={{ base: "h4", sm: "h3", md: "h2" }}>{pageTitle}</Text>
-//       </GridItem>
-//     </Grid>
-//   );
-// }
-
 function Header({ pageTitle, backURL = "/", isLoading = false }) {
   if (isLoading) {
     return (
@@ -123,6 +37,7 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
         direction="row"
         p={4}
         justify="space-between"
+        px={40}
       >
         <NavLink text="back" href={backURL} icon={<HiArrowLeft />} />
         <Stack direction="row" spacing={{ base: 2, sm: 10 }}>
@@ -167,8 +82,9 @@ function Header({ pageTitle, backURL = "/", isLoading = false }) {
       boxShadow={`0px 10px 10px #F7F7F3`}
       w="full"
       direction="row"
-      p={4}
+      py={4}
       justify="space-between"
+      px={{ base: 4, sm: 8, lg: 20, xl: 40 }}
     >
       <NavLink text="back" href={backURL} icon={<HiArrowLeft />} />
 

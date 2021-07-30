@@ -25,10 +25,10 @@ const fetchData = async (query, { variables } = {}) => {
 };
 
 // get all posts to display on work page
-export async function getAllWork() {
+export async function getProudOf() {
   const data = await fetchData(
     `query AllWork {
-        work:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "work"}}}) {
+        work:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "proud of"}}}) {
           items {
             _id
             date
@@ -57,10 +57,42 @@ export async function getAllWork() {
 }
 
 // get all posts to display on art page
-export async function getAllArt() {
+export async function getOkay() {
   const data = await fetchData(
     `query AllWork {
-        art:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "art"}}}) {
+        art:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "okay"}}}) {
+          items {
+            _id
+            date
+            description
+            thumbnail {
+              _id
+              caption
+              credit
+              description
+              filename
+              mimeType
+              path
+              sourceUrl
+              title
+              uploadStatus
+            }
+            tag {
+              name
+            }
+            title
+          }
+        }
+      }`
+  );
+  return data;
+}
+
+// get all posts to display on art page
+export async function getMostlyJunk() {
+  const data = await fetchData(
+    `query AllWork {
+        art:getProjectList(sort: {field: "date", order: "desc"}, where: {tag: {name: {match: "mostly junk"}}}) {
           items {
             _id
             date
