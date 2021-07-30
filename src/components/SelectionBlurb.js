@@ -6,11 +6,15 @@ const blurbMapper = [
   {
     filter: "proud of",
     blurb: (
-      <Text textStyle="body">
-        These are the projects that I am the most proud of. They are either work
-        that was done on behalf of a client or projects that I have put out into
-        the world.
-      </Text>
+      <>
+        <Text textStyle="body">
+          These are the projects that I am the most proud of.
+        </Text>
+        <Text textStyle="body">
+          They are either work that was done on behalf of a client or projects
+          that I have put out into the world.
+        </Text>
+      </>
     ),
   },
   {
@@ -31,7 +35,7 @@ const blurbMapper = [
     filter: "mostly junk",
     blurb: (
       <>
-        <Text textStyle="body">This is an exercise in vulnerability.</Text>
+        <Text textStyle="body">This one is an exercise in vulnerability.</Text>
         <Text textStyle="body">
           I find that many of the ideas I try out, I don't bring to completion.
         </Text>
