@@ -1,5 +1,5 @@
-import Head from "next/head";
 import Link from "next/link";
+import Head from "next/head";
 import { Box, Button, Container, Stack, Text } from "@chakra-ui/react";
 
 import Footer from "../src/components/footer";
@@ -9,14 +9,34 @@ import {
   HiOutlineBriefcase,
   HiOutlineSparkles,
 } from "react-icons/hi";
-import { Default, Hover } from "../src/svg/BenLogo";
+import { Default } from "../src/svg/BenLogo";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>🔩 Ben Cooper</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Ben Cooper</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="76x76"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
 
       <main>
